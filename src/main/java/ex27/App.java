@@ -8,6 +8,11 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+
+        String finished = scanIn();
+        System.out.println(finished);
+    }
+    static String scanIn() {
         Scanner myInput = new Scanner(System.in);
         System.out.print("Enter the first name: ");
         String firstName = myInput.next();
@@ -17,10 +22,10 @@ public class App {
         String zipCode = myInput.next();
         System.out.print("Enter the employee ID: ");
         String empId = myInput.next();
-        validateInput(firstName,lastName,zipCode,empId);
+        String result = validateInput(firstName,lastName,zipCode,empId);
+        return result;
     }
-
-    static void validateInput(String first, String last, String ZIP, String emp) {
+    static String validateInput(String first, String last, String ZIP, String emp) {
         String x = "";
         x += validateFirst(first);
         x+= validateLast(last);
@@ -28,9 +33,9 @@ public class App {
         x+= validateZIP(ZIP);
         if(x.equals(""))
         {
-            x = "There were no errors found.";
+            return "There were no errors found.";
         }
-        System.out.println(x);
+        return x;
     }
     static String validateFirst(String x) {
         if(x.length() < 2)
