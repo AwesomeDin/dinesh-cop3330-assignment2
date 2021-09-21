@@ -1,20 +1,22 @@
 package ex24;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.util.Scanner;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+import static org.junit.jupiter.api.Assertions.*;
+
+class AppTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    void scanIn() {
+    }
+
+    @Test
+    void convertStr() {
+    }
+
+    @Test
+    void isAnagram() {
     }
 }
