@@ -13,6 +13,8 @@ public class App {
         String s = scanIn();
         int result = passwordValidator(s);
         String finalResult = "";
+
+        //Case statement that associates an int with a phrase and then prints that out
         switch (result)
         {
             case 1:
@@ -37,6 +39,7 @@ public class App {
 
     }
 
+    //function to scan in the incoming inputs
     public static String scanIn()
     {
         Scanner myInput = new Scanner(System.in);
@@ -44,6 +47,7 @@ public class App {
         return (myInput.next());
     }
 
+    //Checks to see if the password passes the veryWeak stage using regex
     public static int veryWeak(String x)
     {
         if(x.matches("\\d+" ) && x.length() < 8)
@@ -52,6 +56,7 @@ public class App {
         }
         return 0;
     }
+    //Checks to see if the password passes the Weak stage using regex
     public static int Weak(String x)
     {
         if(x.matches("\\D+") && x.length() < 8)
@@ -60,6 +65,7 @@ public class App {
         }
         return 0;
     }
+    //Checks to see if the password passes the Strong stage using regex
     public static int Strong(String x)
     {
         if(Pattern.compile("\\D+").matcher(x).find()
@@ -70,6 +76,7 @@ public class App {
         }
         return 0;
     }
+    //Checks to see if the password passes the veryStrong stage using regex
     public static int veryStrong(String x)
     {
         if(Pattern.compile("\\D+").matcher(x).find()
@@ -81,6 +88,8 @@ public class App {
         }
         return 0;
     }
+    //Controller, calls all the functions and adds the score up to see what stage the
+    //password is at.
     public static int passwordValidator (String x)
     {
         int result = 0;
