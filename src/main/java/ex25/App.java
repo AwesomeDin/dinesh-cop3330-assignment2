@@ -37,14 +37,14 @@ public class App {
 
     }
 
-    static String scanIn()
+    public static String scanIn()
     {
         Scanner myInput = new Scanner(System.in);
         System.out.print("Enter the password: ");
         return (myInput.next());
     }
 
-    static int veryWeak(String x)
+    public static int veryWeak(String x)
     {
         if(x.matches("\\d+" ) && x.length() < 8)
         {
@@ -52,7 +52,7 @@ public class App {
         }
         return 0;
     }
-    static int Weak(String x)
+    public static int Weak(String x)
     {
         if(x.matches("\\D+") && x.length() < 8)
         {
@@ -60,7 +60,7 @@ public class App {
         }
         return 0;
     }
-    static int Strong(String x)
+    public static int Strong(String x)
     {
         if(Pattern.compile("\\D+").matcher(x).find()
                 && Pattern.compile("\\d+").matcher(x).find()
@@ -70,7 +70,7 @@ public class App {
         }
         return 0;
     }
-    static int veryStrong(String x)
+    public static int veryStrong(String x)
     {
         if(Pattern.compile("\\D+").matcher(x).find()
                 && Pattern.compile("\\d+").matcher(x).find()
@@ -81,7 +81,7 @@ public class App {
         }
         return 0;
     }
-    static int passwordValidator (String x)
+    public static int passwordValidator (String x)
     {
         int result = 0;
         result += veryWeak(x);

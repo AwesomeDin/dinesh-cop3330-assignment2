@@ -26,7 +26,7 @@ public class App
     }
 
     //Scans in the string from the user
-    static String scanIn(String x)
+    public static String scanIn(String x)
     {
         Scanner myInput = new Scanner(System.in);
         System.out.print("Enter the " + x + " string: ");
@@ -35,7 +35,7 @@ public class App
 
     //This converts a string to character array, by doing
     //this we can check each individual letter
-    static char[] convertStr (String x)
+    public static char[] convertStr (String x)
     {
         char[] done = new char[x.length()];
         for (int i = 0; i<x.length();i++)
