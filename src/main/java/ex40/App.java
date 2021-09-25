@@ -10,19 +10,23 @@ import java.lang.Math;
 public class App {
     public static void main(String[] args) {
         Map<String, ArrayList<String>> multiValueMap = new HashMap<String, ArrayList<String>>();
-        Scanner myInput = new Scanner(System.in);
-        System.out.print("Enter a search string: ");
-        String search = myInput.nextLine();
+        String search = scanIn("Enter a search string: ");
         System.out.println("Name \t\t\t\t\t\t   | Position\t\t\t\t | Separation Date");
         System.out.println("----------------------------------------------------------------------------");
         controller(multiValueMap,search);
     }
-    public static void putIn(Map<String, ArrayList<String>> ourMap, int number, String firstName[], String lastName[],
+    public static String scanIn(String s) {
+        Scanner myInput = new Scanner(System.in);
+        System.out.print(s);
+        return myInput.nextLine();
+    }
+    public static Map<String, ArrayList<String>> putIn(Map<String, ArrayList<String>> ourMap, int number, String firstName[], String lastName[],
                              String position[], String separationDate[]) {
         ourMap.put(lastName[number], new ArrayList<String>());
         ourMap.get(lastName[number]).add(firstName[number]);
         ourMap.get(lastName[number]).add(position[number]);
         ourMap.get(lastName[number]).add(separationDate[number]);
+        return ourMap;
     }
     public static void printIng(Map<String, ArrayList<String>> multiValueMap, String lastName[],ArrayList<Integer> people)
     {
@@ -41,7 +45,7 @@ public class App {
         String separationDate[] = {"2016-12-31","2016-10-05","2015-12-19","","","2015-12-18"};
         for(int i = 0;i <lastName.length;i++)
         {
-            putIn(multiValueMap, i, firstName,lastName,position,separationDate);
+            multiValueMap = putIn(multiValueMap, i, firstName,lastName,position,separationDate);
         }
         printIng(multiValueMap,lastName,filtering(search,multiValueMap,lastName,firstName));
     }
