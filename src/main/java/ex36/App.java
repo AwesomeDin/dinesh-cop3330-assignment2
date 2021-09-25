@@ -10,20 +10,23 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 public class App {
+    //Creates the new arraylist and calls the functions in sequential order
     public static void main(String[] args) {
         ArrayList<Double> numberArray = new ArrayList<>();
         enterName(numberArray);
         printArray(numberArray);
         printIng(numberArray);
     }
+    //Prints the array out once they are done entering numbers
     public static void printArray(ArrayList<Double> numberArray) {
         System.out.print("Numbers: ");
         for (double i : numberArray) {
             System.out.print((int)i + ",");
         }
     }
-    public static void  enterName(ArrayList<Double> numbers) {
 
+    //Continues to enter in numbers until done is entered, ignores bad numbers
+    public static void  enterName(ArrayList<Double> numbers) {
         while(true) {
             String num = scanIn("Enter a number: ");
             if (num.equals("done")) {
@@ -37,16 +40,20 @@ public class App {
         }
     }
 
+    //simple scanin function that returns the user input
     public static String scanIn(String s) {
         Scanner myInput = new Scanner(System.in);
         System.out.print(s);
         return myInput.nextLine();
     }
 
+    //Adds numbers to the arraylist
     public static ArrayList<Double> addEmp(ArrayList<Double> numbers, double num) {
         numbers.add(num);
         return numbers;
     }
+
+    //Finds the average of the arraylist
     public static double findAvg(ArrayList<Double> numbers)
     {
         double total = 0;
@@ -54,6 +61,8 @@ public class App {
             total += numbers.get(i);
         return total / numbers.size();
     }
+
+    //finds the max of the arraylist
     public static double findMax(ArrayList<Double> numbers)
     {
         double max = numbers.get(0);
@@ -64,6 +73,8 @@ public class App {
         }
         return max;
     }
+
+    //finds the minimum of the arraylist
     public static double findMin(ArrayList<Double> numbers)
     {
         double min = numbers.get(0);
@@ -74,6 +85,8 @@ public class App {
         }
         return min;
     }
+
+    //finds the standard deviation of the arraylist
     public static double findStdev(ArrayList<Double> numbers)
     {
         double avg = findAvg(numbers);
@@ -88,6 +101,8 @@ public class App {
         double meanOfDiffs = total / (double) (numbers.size());
         return Math.sqrt(meanOfDiffs);
     }
+
+    //prints the final closing statements
     public static void printIng(ArrayList<Double> numbers)
     {
         System.out.format("\nThe average is %.1f",findAvg(numbers));
