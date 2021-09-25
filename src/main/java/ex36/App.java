@@ -13,17 +13,19 @@ public class App {
     public static void main(String[] args) {
         ArrayList<Double> numberArray = new ArrayList<>();
         enterName(numberArray);
+        printArray(numberArray);
+        printIng(numberArray);
+    }
+    public static void printArray(ArrayList<Double> numberArray) {
         System.out.print("Numbers: ");
         for (double i : numberArray) {
             System.out.print((int)i + ",");
         }
-        printIng(numberArray);
     }
     public static void  enterName(ArrayList<Double> numbers) {
-        Scanner myInput = new Scanner(System.in);
+
         while(true) {
-            System.out.print("Enter a number: ");
-            String num = myInput.nextLine();
+            String num = scanIn("Enter a number: ");
             if (num.equals("done")) {
                 break;
             }
@@ -31,11 +33,19 @@ public class App {
             {
                 continue;
             }
-            addEmp(numbers, Double.parseDouble(num));
+            numbers = addEmp(numbers, Double.parseDouble(num));
         }
     }
-    public static void addEmp(ArrayList<Double> numbers, double num) {
+
+    public static String scanIn(String s) {
+        Scanner myInput = new Scanner(System.in);
+        System.out.print(s);
+        return myInput.nextLine();
+    }
+
+    public static ArrayList<Double> addEmp(ArrayList<Double> numbers, double num) {
         numbers.add(num);
+        return numbers;
     }
     public static double findAvg(ArrayList<Double> numbers)
     {
