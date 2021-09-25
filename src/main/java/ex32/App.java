@@ -89,10 +89,7 @@ public class App {
     {
         Scanner myInput = new Scanner(System.in);
         while(guess != secretNumber){
-            if(guess > secretNumber)
-                System.out.print("Too high. Guess again: ");
-            else if( guess < secretNumber)
-                System.out.print("Too low. Guess again: ");
+            printbigOrsmall(guess,secretNumber);
             counter +=1;
             while (!myInput.hasNextInt()) {
                 System.out.println("Sorry. That's not a valid input.");
@@ -102,6 +99,14 @@ public class App {
             guess = myInput.nextInt();
         }
         return counter;
+    }
+
+    //Prints whether the guess is too high or too small
+    public static void printbigOrsmall (int guess, int secretNumber) {
+        if(guess > secretNumber)
+            System.out.print("Too high. Guess again: ");
+        else if( guess < secretNumber)
+            System.out.print("Too low. Guess again: ");
     }
 
 }
