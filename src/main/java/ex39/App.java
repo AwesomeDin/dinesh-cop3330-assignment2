@@ -18,12 +18,13 @@ public class App {
         printIng(multiValueMap,lastName);
 
     }
-    public static void putIn(Map<String, ArrayList<String>> ourMap, int number, String firstName[], String lastName[],
+    public static Map<String, ArrayList<String>> putIn(Map<String, ArrayList<String>> ourMap, int number, String firstName[], String lastName[],
                               String position[], String separationDate[]) {
         ourMap.put(lastName[number], new ArrayList<String>());
         ourMap.get(lastName[number]).add(firstName[number]);
         ourMap.get(lastName[number]).add(position[number]);
         ourMap.get(lastName[number]).add(separationDate[number]);
+        return ourMap;
     }
     public static void printIng(Map<String, ArrayList<String>> multiValueMap, String lastName[])
     {
@@ -42,7 +43,7 @@ public class App {
         String separationDate[] = {"2016-12-31","2016-10-05","2015-12-19","","","2015-12-18"};
         for(int i = 0;i <lastName.length;i++)
         {
-            putIn(multiValueMap, i, firstName,lastName,position,separationDate);
+            multiValueMap = putIn(multiValueMap, i, firstName,lastName,position,separationDate);
         }
         return lastName;
     }
