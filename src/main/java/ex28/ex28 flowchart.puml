@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+title ex28 Flowchart
+
+scanLoop -> scanIn : Enter a number (5 times)
+scanIn -> scanLoop : Returns the number (5 times)
+
+scanLoop -> main : Returns array back to the main
+main -> numLoop : Sends the values of the userinput
+numLoop -> main : total of the values
+
+@enduml
