@@ -12,27 +12,49 @@ public class App {
     public static void main(String[] args) {
         ArrayList<String> peopleArray = new ArrayList<>();
         enterName(peopleArray);
-        System.out.println("The winner is... " + chooseWinner(peopleArray) + ".");
+        int random = randomValue(peopleArray);
+        System.out.println("The winner is... " + chooseWinner(peopleArray,random) + ".");
     }
-    public static void  enterName(ArrayList<String> people) {
-        Scanner myInput = new Scanner(System.in);
-        while(true) {
-            System.out.print("Enter a name: ");
-            String s = myInput.nextLine();
-            if (s.length() < 1) {
-                break;
-            }
-            addEmp(people, s);
+    public static void enterName(ArrayList<String> people) {
+        boolean TorF = true;
+        while(TorF) {
+            String s = scanIn();
+            people = statement(s,people);
+            TorF = testLength(s);
         }
     }
-
-    public static void addEmp(ArrayList<String> people, String name) {
-        people.add(name);
+    public static boolean testLength(String s)
+    {
+        if(s.length() < 1)
+            return false;
+        return true;
     }
 
-    public static String chooseWinner(ArrayList<String> people)
+    public static ArrayList<String> statement(String s,ArrayList<String> people)
     {
-        int value = (int) (Math.random() * people.size());
-        return people.get(value);
+        if (s.length() >= 1) {
+            people = addEmp(people, s);
+        }
+        return people;
+    }
+
+    public static String scanIn () {
+        Scanner myInput = new Scanner(System.in);
+        System.out.print("Enter a name: ");
+        return myInput.nextLine();
+    }
+
+    public static ArrayList<String> addEmp(ArrayList<String> people, String name) {
+        people.add(name);
+        return people;
+    }
+
+    public static String chooseWinner(ArrayList<String> people,int random)
+    {
+        return people.get(random);
+    }
+
+    public static int randomValue(ArrayList<String> people) {
+        return (int) (Math.random() * people.size());
     }
 }
