@@ -10,6 +10,7 @@ import java.lang.Math;
 
 public class App {
     public static void main(String[] args) {
+        //Creates a new hashmap and calls the functions, sets up the tabular format
         Map<String, ArrayList<String>> multiValueMap = new HashMap<String, ArrayList<String>>();
         System.out.println("Name \t\t\t\t\t\t   | Position\t\t\t\t | Separation Date");
         System.out.println("----------------------------------------------------------------------------");
@@ -18,6 +19,8 @@ public class App {
         printIng(multiValueMap,lastName);
 
     }
+
+    //Adds the information to the arraylist using the lastname as the key for the hashmap
     public static Map<String, ArrayList<String>> putIn(Map<String, ArrayList<String>> ourMap, int number, String firstName[], String lastName[],
                               String position[], String separationDate[]) {
         ourMap.put(lastName[number], new ArrayList<String>());
@@ -26,6 +29,8 @@ public class App {
         ourMap.get(lastName[number]).add(separationDate[number]);
         return ourMap;
     }
+
+    //Prints out the information in tabular format
     public static void printIng(Map<String, ArrayList<String>> multiValueMap, String lastName[])
     {
         for(int i = 0;i< lastName.length;i++)
@@ -36,6 +41,8 @@ public class App {
             System.out.println();
         }
     }
+
+    //Has the arrays with all the information and calls the putIn function to add these values to the map
     public static String[] controller(Map<String, ArrayList<String>> multiValueMap) {
         String firstName[] = {"John", "Tou", "Michaela", "Jake", "Jacquelyn","Sally"};
         String lastName[] = {"Johnson","Xiong","Michaelson","Jacobson","Jackson","Webber"};
